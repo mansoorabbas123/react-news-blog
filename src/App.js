@@ -7,11 +7,17 @@ const Provider = MyContext.Provider;
 
 function App() {
   const [content, setContent] = useState([]);
+  const [categories, setCategories] = useState([]);
   const getData = async () => {
     try {
-      const res = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=9ecd732cbfa94c4193ea1db647070b44');
+      const res = await fetch(`https://newsapi.org/v2/sources?technology&country=us&apiKey=9ecd732cbfa94c4193ea1db647070b44`);
       const data = await res.json();
-      setContent(data.articles);
+      const sources = data.sources;
+      const categories = data.sources.map(c => c.category);
+
+      setCategories([...new Set(categories)])
+      setContent(sources);
+
 
     } catch (err) {
       console.log(err);
@@ -20,11 +26,12 @@ function App() {
   useEffect(() => {
     getData();
   }, []);
-
-  return (
-    <Provider value={content}>
-      <Routes />
-    </Provider>);
+  const data = {
+    content, categories
+  }
+  return (<Provider value={data}>
+    <Routes />
+  </Provider>);
 }
 
 export default App;

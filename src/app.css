@@ -4,7 +4,10 @@
   box-sizing: border-box;
 }
 body {
+  height: 100vh;
   background-color: #faf3f3;
+  display: flex;
+  flex-direction: column;
 }
 :root {
   --nav-color: #3d84b8;
@@ -33,15 +36,23 @@ body {
 .top-headlines {
   padding: 2rem;
   border: 1px ridge rgb(226, 226, 226);
-  background-color: #f0ebcc70;
+  background-color: #fff;
 }
 .top-headlines h1 {
   margin-bottom: 2rem;
 }
 
 .sidebar {
-  background-color: #f0ebcc70;
+  background-color: #fff;
   padding: 2rem;
   line-height: 2;
   border: 1px ridge rgb(226, 226, 226);
+}
+footer {
+  width: 100%;
+  color: white;
+  background-color: var(--nav-color);
+  text-align: center;
+  line-height: 3;
+  margin-top: auto;
 }
