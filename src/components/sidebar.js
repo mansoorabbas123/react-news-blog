@@ -9,9 +9,9 @@ export const SideBar = () => {
         <div className="sidebar">
             <h4>Category</h4>
             <ul>
-                {categories.map(c =>
-                    <Link to={`/${c}`}>
-                        <li key={c}>{c}</li>
+                {categories.map(category =>
+                    <Link to={`/${category}`}>
+                        <li key={category}>{category}</li>
                     </Link>)}
             </ul>
         </div>

@@ -14,9 +14,11 @@ export const TopNews = () => {
             console.log(err);
         }
     }
+
     useEffect(() => {
         getData();
     }, []);
+
     return (<>
         {content.length > 0 ?
             <div className="top-headlines">
