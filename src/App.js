@@ -14,9 +14,8 @@ function App() {
       const res = await fetch(`https://newsapi.org/v2/sources?technology&country=us&apiKey=9ecd732cbfa94c4193ea1db647070b44`);
       const data = await res.json();
       const sources = data.sources;
-      const categories = data.sources.map(c => c.category);
 
-      setCategories([...new Set(categories)])
+      setCategories([...new Set(data.sources.map(c => c.category))])
       setContent(sources);
 
     } catch (err) {
