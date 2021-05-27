@@ -19,7 +19,7 @@ export const Content = () => {
                                     <div className="col-md-8">
                                         {context.content.filter(article => article.category === selectedCatrgory).map(article =>
 
-                                            <div className="card m-3" style={{ width: "18rem;" }}>
+                                            <div className="card m-3" key={article.id} style={{ "width": "18rem" }}>
                                                 <div className="card-body">
                                                     <h5 className="card-title">{article.name}</h5>
 
