@@ -9,7 +9,7 @@ export const Routes = () => {
             <Navbar />
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route path='/:category' component={Content} />
+                {/* <Route path='/:category' component={Content} /> */}
             </Switch>
 
         </BrowserRouter>

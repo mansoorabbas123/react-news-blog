@@ -1,9 +1,30 @@
 import './app.css';
 import { Routes } from './routes';
+import { useState, useEffect } from 'react';
+import React from 'react';
+export const MyContext = React.createContext();
+const Provider = MyContext.Provider;
+
 function App() {
-  return (<>
-    <Routes />
-  </>);
+  const [content, setContent] = useState([]);
+  const getData = async () => {
+    try {
+      const res = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=9ecd732cbfa94c4193ea1db647070b44');
+      const data = await res.json();
+      setContent(data.articles);
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <Provider value={content}>
+      <Routes />
+    </Provider>);
 }
 
 export default App;
