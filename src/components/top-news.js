@@ -6,7 +6,7 @@ export const TopNews = () => {
     const [content, setContent] = useState([]);
     const getData = async () => {
         try {
-            const res = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=9ecd732cbfa94c4193ea1db647070b44');
+            const res = await fetch('https://gnews.io/api/v4/top-headlines?token=56abd2a88cedb839f0a8cbbf1e41cfae&lang=en');
             const data = await res.json();
             setContent(data.articles);
 
@@ -25,9 +25,9 @@ export const TopNews = () => {
                 <h1>Top Headlines</h1>
                 <Carousel>
                     {content.map(article => <div onClick={() => window.open(article.url)} key={article.title}>
-                        <img src={article.urlToImage} alt={article.description} />
+                        <img src={article.image} alt={article.description} />
                         <h4 style={{ marginBottom: "3rem", paddingTop: "0.5rem" }}>{article.title}</h4>
-                        {/* <p className="legend">{article.description}</p> */}
+                        <p className="legend">{article.description}</p>
                     </div>)}
                 </Carousel>
             </div>
