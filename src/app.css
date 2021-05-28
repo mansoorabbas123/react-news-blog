@@ -8,6 +8,7 @@ body {
   background-color: #faf3f3;
   display: flex;
   flex-direction: column;
+  font-family: "Open Sans", sans-serif;
 }
 :root {
   --nav-color: #3d84b8;
@@ -56,4 +57,12 @@ footer {
   background-color: var(--nav-color);
   text-align: center;
   line-height: 3;
+}
+
+.btn-primary {
+  background-color: #3d84b8 !important;
+}
+
+p {
+  color: rgba(0, 0, 0, 0.692);
 }

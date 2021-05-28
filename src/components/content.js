@@ -18,15 +18,17 @@ export const Content = () => {
                                 <div className="row">
                                     <div className="col-md-8">
                                         {context.content.filter(article => article.category === selectedCatrgory).map(article =>
-
-                                            <div className="card m-3" style={{ width: "18rem;" }}>
-                                                <div className="card-body">
-                                                    <h5 className="card-title">{article.name}</h5>
-
-                                                    <p className="card-text">{article.description}</p>
-                                                    <a href={article.url} className="card-link">Open</a>
+                                            <div class="card m-2" key={article.id}>
+                                                <div class="card-header">
+                                                    {article.id}
+                                                </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title"> {article.name}</h5>
+                                                    <p class="card-text">{article.description}</p>
+                                                    <a href={article.url} class="btn btn-primary">open</a>
                                                 </div>
                                             </div>
+
                                         )}
 
 
